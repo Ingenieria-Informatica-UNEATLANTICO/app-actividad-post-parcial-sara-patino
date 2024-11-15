@@ -1,0 +1,11 @@
+@startuml
+state "Ruta" as Ruta {
+    [*] --> SinEmpezar
+    SinEmpezar --> IniciarRuta : "Conductor inicia ruta"
+    IniciarRuta --> HacerParada
+    HacerParada --> ContinuarRuta
+    ContinuarRuta --> HacerParada
+    ContinuarRuta --> FinalizarRuta
+    FinalizarRuta --> [*]
+}
+@enduml
