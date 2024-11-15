@@ -1,0 +1,10 @@
+@startuml
+state "Incidencia" as Incidencia {
+    [*] --> CrearIncidencia : "Se crea una incidencia"
+    CrearIncidencia --> NotificarServicio : "Se notifica al servicio"
+    NotificarServicio --> AlterarHorario : "Se altera el horario"
+    AlterarHorario --> ModificarServicio : "Modificaciones en el servicio"
+    ModificarServicio --> FinIncidencia : "Fin de la incidencia"
+    FinIncidencia --> [*]
+}
+@enduml

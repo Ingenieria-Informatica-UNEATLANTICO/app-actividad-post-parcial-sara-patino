@@ -1,0 +1,11 @@
+@startuml
+state "Cliente" as Cliente {
+    [*] --> PagarTarifa : "Paga Tarifa/Abono"
+    PagarTarifa --> EsperarParada : "Espera en parada más cercana"
+    EsperarParada --> ComenzarViaje : "Comienza viaje"
+    ComenzarViaje --> SeguirRuta : "Sigue ruta"
+    SeguirRuta --> EsperarDestino : "Esperar parada de destino"
+    EsperarDestino --> TerminarViaje : "Se baja del vehículo"
+    TerminarViaje --> [*]
+}
+@enduml

@@ -1,0 +1,71 @@
+@startuml
+object ciudadSantander {
+    calles = "calle A, calle B, calle C"
+}
+
+object companiaTUS {
+    TarifaRegular = "€1.30"
+}
+
+object servicioRegular
+
+object flotaTUS {
+    tipo = "autobús"
+}
+
+object vehiculo1 {
+    Tipo = "bus urbano"
+}
+
+object conductorPedro
+
+object clienteSara {
+    Nombre = "Sara"
+    AbonoTipo = "TarjetaRoja"
+}
+
+object abonoMensual {
+    Tarifa = "€25"
+    Duración = "3 meses"
+}
+
+object Linea13 {
+    Comienzo = "Centro"
+    Fin = "Playa"
+}
+
+object ParadasRuta13 {
+    ListaDeParadas = "Parada 1, Parada 2, Parada 3"
+}
+
+object viaje {
+    Duración = "40 minutos"
+}
+
+object horarioManana {
+    Inicio = "08:00"
+    Fin = "08:40"
+}
+
+object incidenciaCalleCerrada {
+    detalle = "Cierre de calle por mantenimiento"
+    Fecha = "2024-11-16"
+    Hora = "08:15"
+}
+
+ciudadSantander -- companiaTUS
+companiaTUS -- servicioRegular
+servicioRegular -- flotaTUS
+flotaTUS -- vehiculo1
+vehiculo1 -- viaje
+viaje -- Linea13
+Linea13 -- horarioManana : "tiene"
+Linea13 -- ParadasRuta13 : "incluye"
+Linea13 -- servicioRegular
+clienteSara -- abonoMensual : "paga"
+clienteSara -- vehiculo1 : "usa"
+conductorPedro -- vehiculo1 : "maneja"
+incidenciaCalleCerrada .. vehiculo1 : "afecta"
+incidenciaCalleCerrada .. Linea13 : "afecta"
+abonoMensual -- servicioRegular
+@enduml

@@ -1,0 +1,64 @@
+@startuml
+class Ciudad {
+    + calles
+}
+
+class Compañía {
+    + TarifaRegular
+}
+
+class Flota {
+    + tipo
+}
+
+class Paradas {
+    + ListaDeParadas
+}
+
+class Ruta {
+    + Comienzo
+    + Fin
+}
+
+class Viaje {
+    + Duración
+}
+
+class Horario
+
+class Cliente {
+    + Nombre
+    + AbonoTipo
+}
+
+class Abonos {
+    + Tarifa
+    + Duración
+}
+
+class Vehículo {
+    + Tipo
+}
+
+class Conductor
+
+class Servicio
+
+class Incidencia {
+    + detalle
+}
+
+Ciudad -- Compañía
+Compañía -- Flota
+Flota -- Vehículo
+Vehículo -- Viaje
+Vehículo -- Conductor : "maneja"
+Cliente -- Abonos : "paga"
+Cliente -- Vehículo : "usa"
+Ruta -- Paradas : "tiene"
+Ruta -- Viaje
+Viaje -- Horario
+Servicio -- Incidencia
+Servicio -- Compañía
+Incidencia .. Horario 
+@enduml
