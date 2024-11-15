@@ -1,0 +1,67 @@
+@startuml
+object Santander {
+    ListaDeCalles
+}
+
+object Alsa
+
+object Servicio
+
+object Tus {
+    TarifaRegular = €1,30
+}
+
+object Flota {
+    Tipo = Bus
+}
+
+object TarjetaRoja {
+    Tarifa = €25
+    Duración = 3 meses
+}
+
+object Cliente {
+    Nombre = Sara
+    Abono = TarjetaRoja
+}
+
+object Conductor
+
+object Vehículo {
+    Tipo = Bus
+}
+
+object Incidencia {
+    CierranCalle
+}
+
+object Paradas {
+    ListaDeParadas
+}
+
+object Linea13 {
+    Comienzo = Lluja
+    Fin = Cueto
+}
+
+object PrimerViaje {
+    Duración = 40 mins
+}
+
+object Horario
+
+Santander -- Tus
+Santander -- Alsa
+Tus -- Flota
+Flota -- Vehículo
+Vehículo -- Conductor
+Conductor -- PrimerViaje
+Cliente -- TarjetaRoja
+Cliente -- Vehículo : usa
+Linea13 -- Paradas : tiene
+Linea13 -- PrimerViaje
+PrimerViaje -- Horario
+Servicio -- Incidencia
+Servicio -- Tus
+Incidencia .. Horario : "relación débil"
+@enduml
